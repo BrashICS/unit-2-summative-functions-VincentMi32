@@ -25,72 +25,45 @@ function round_user(value) {
     let d = Number(document.getElementById("rounding").value)
 
 }
-In mathematics the term Delta (∆) means difference. Create a JavaScript function delta(a, b) which returns the value of a - b.
-
-Slope of a line is calculated as 
-𝑚
-=
-Δ
-𝑦
-Δ
-𝑥
-m= 
-Δx
-Δy
-​
- . Create the function slope(x1, y1, x2, y2) which receives the points (x1, y1), (x2, y2) and returns the slope. Do not round the result. You must use your delta function from #1 for this.
-
-The average of two numbers is as simple as 
-𝑛
-1
-+
-𝑛
-2
-2
-2
-n1+n2
-​
- 
-Create the function average(n1, n2) which returns the average of the two numbers.
-
-The input box rounding will contain how many decimals the user wants for anwers. We will use this a lot, so we should make a function to help ourselves. Create the function round_user(value) which takes the value and rounds it to the user's request number of decimals, returning the answer.
-For example, if the user has 4 in the rounding input box and we call round_user(Math.PI) we get back 3.1416.
-
-The length of a line segment is extremely similar to Pythagoras' Theorem: 
-𝑙
-=
-(
-Δ
-𝑥
-)
-2
-+
-(
-Δ
-𝑦
-)
-2
-l= 
-(Δx) 
-2
- +(Δy) 
-2
- 
-​
  
 
-You must use your delta function from #1 for this.      
+    
 // Calculate the y-value of a parabola from standand form
 function y_quad(a, b, c, x) {
 
 }
 
-// Determine the zeros of a quadratic using user-inputs for a, b, and c
-function zeros() {
+//      
+import readlineSync from 'readline-sync';
+
+function findQuadraticZeros(a, b, c) {
+    const discriminant = b * b - 4 * a * c;
+    if (discriminant > 0) {
+        const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        return [root1, root2];
+    } else if (discriminant === 0) {
+        const root = -b / (2 * a);
+        return [root];
+    } else {
+        return [];
+    }
 }
 
-// Determine the vertex of a quadratic using user-inputs for a, b, and c
-function vertex() {
+const a = parseFloat(readlineSync.question('Enter coefficient a: '));
+const b = parseFloat(readlineSync.question('Enter coefficient b: '));
+const c = parseFloat(readlineSync.question('Enter coefficient c: '));
 
+const zeros = findQuadraticZeros(a, b, c);
+if (zeros.length > 0) {
+    console.log('The zeros of the quadratic are:', zeros);
+} else {
+    console.log('There are no real zeros for the given quadratic.');
 }
+
+document.getElementById("find the zeros").addEventListener("click", find zeros) 
+// Determine the vertex of a quadratic using user-inputs for a, b, and 
+
+
+
 
