@@ -25,18 +25,45 @@ function round_user(value) {
     let d = Number(document.getElementById("rounding").value)
 
 }
+ 
 
+    
 // Calculate the y-value of a parabola from standand form
 function y_quad(a, b, c, x) {
 
 }
 
-// Determine the zeros of a quadratic using user-inputs for a, b, and c
-function zeros() {
+//      
+import readlineSync from 'readline-sync';
+
+function findQuadraticZeros(a, b, c) {
+    const discriminant = b * b - 4 * a * c;
+    if (discriminant > 0) {
+        const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        return [root1, root2];
+    } else if (discriminant === 0) {
+        const root = -b / (2 * a);
+        return [root];
+    } else {
+        return [];
+    }
 }
 
-// Determine the vertex of a quadratic using user-inputs for a, b, and c
-function vertex() {
+const a = parseFloat(readlineSync.question('Enter coefficient a: '));
+const b = parseFloat(readlineSync.question('Enter coefficient b: '));
+const c = parseFloat(readlineSync.question('Enter coefficient c: '));
 
+const zeros = findQuadraticZeros(a, b, c);
+if (zeros.length > 0) {
+    console.log('The zeros of the quadratic are:', zeros);
+} else {
+    console.log('There are no real zeros for the given quadratic.');
 }
+
+document.getElementById("find the zeros").addEventListener("click", find zeros) 
+// Determine the vertex of a quadratic using user-inputs for a, b, and 
+
+
+
 
